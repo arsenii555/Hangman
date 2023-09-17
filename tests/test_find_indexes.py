@@ -1,3 +1,5 @@
+from typing import Dict
+
 from src.hangman import find_indexes
 
 
@@ -10,7 +12,7 @@ def test_find_indexes_example():
 
 def test_find_indexes_empty_string():
     result = find_indexes("")
-    expected = {}
+    expected: Dict[str, list] = {}
     assert result == expected
 
 
