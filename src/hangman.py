@@ -1,7 +1,7 @@
 from functions import find_indexes, get_random_word
 
 words = []
-with open('./src/words.txt', 'r') as fd:
+with open('words.txt', 'r') as fd:
     for string in fd:
         words.append(string[:-1])
     fd.close()
@@ -12,9 +12,10 @@ current = ['_' for _ in range(length)]
 closed = length
 dict_of_indexes = find_indexes(word)
 guessed_letters = set()
+print('Start guessing...')  # noqa: WPS421 not secure issue
 while attempts > 0:
     current_word = ''.join(current)
-    character = input(f'{current} guess a character: ')  # noqa: WPS421, WPS305,  not secure issue
+    character = input(f'{current_word} guess a character: ')  # noqa: WPS421, WPS305,  not secure issue
     if character in dict_of_indexes.keys():
         if character.lower() not in guessed_letters:
             for ind in dict_of_indexes[character]:
